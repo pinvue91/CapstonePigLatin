@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,7 +17,7 @@ namespace CapstonePigLatin
                 do
                 {
                     Console.Clear();
-                    Console.Write("Hello. Welcome to the Pig Latin Generator.\nPlease enter a word or sentence to translate: ");
+                    Console.Write("Hello. Welcome to the Pig Latin Translator.\nPlease enter a word or sentence to be translated: ");
                     userWord = Console.ReadLine().ToLower().Trim();
                 }
                 while (string.IsNullOrEmpty(userWord));
@@ -122,9 +120,11 @@ namespace CapstonePigLatin
 
                 int[] posOfVowelsArray = posOfVowels.ToArray();
 
+                //if no vowels, return userWord & "ay"
                 if (posOfVowelsArray.Length == 0)
                 {
-                    return userWord;
+                    string newWord = userWord + "ay";
+                    return newWord;
                 }
 
                 string firstConsonants = userWord.Substring(0, posOfVowelsArray.Min());
@@ -144,17 +144,6 @@ namespace CapstonePigLatin
 
         }
 
-        //public static string pigLatinSentance(string sentence)
-        //{
-        
-        //}
-
-
-        //maybe create a method to check for consonants
-
-        //create method to check if any text was entered
-
-        //create method to check if string has numbers or symbols (we will not translate and return string)
 
     }
 }
